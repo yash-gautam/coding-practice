@@ -7,13 +7,13 @@ class Solution {
         
         for(char ch: s.toCharArray()){
             if(ch>='0' && ch<='9'){                
-                int ele = Character.getNumericValue(ch);
+                int curr = Character.getNumericValue(ch);
                 
-                if(ele>=a){
-                    b = (ele==a) ? b : a;
-                    a = ele;
-                } else if(ele>b){
-                    b = ele;
+                if(curr>=a){
+                    b = (curr==a) ? b : a; // update b only if current value is greater than a
+                    a = curr;
+                } else if(curr>b){
+                    b = curr;
                 }
                 
             }
