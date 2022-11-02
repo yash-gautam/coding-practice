@@ -1,18 +1,17 @@
 class Solution {
     public int minMutation(String start, String end, String[] bank) {
         
+        char[] choices = {'A', 'C', 'G', 'T'};
         HashSet<String> set = new HashSet<>();
+        HashSet<String> visited = new HashSet<>();
+        Queue<String> q = new LinkedList<>();
+        
         for(String s: bank){
             set.add(s);
         }
         
-        HashSet<String> visited = new HashSet<>();
-        Queue<String> q = new LinkedList<>();
-        
         visited.add(start);
         q.add(start);
-        
-        char[] choices = {'A', 'C', 'G', 'T'};
         
         int steps = 0;
         while(!q.isEmpty()){
