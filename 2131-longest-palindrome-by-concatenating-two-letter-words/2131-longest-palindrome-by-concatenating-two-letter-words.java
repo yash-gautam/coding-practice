@@ -1,38 +1,26 @@
 class Solution {
     public int longestPalindrome(String[] words) {
         int max = 0;
-
-        HashMap<String, Integer> map = new HashMap<>();
+        
+        int[][] dp = new int[26][26];
+        
         for(String s: words){
-            map.put(s, map.getOrDefault(s, 0)+1);
-        }
-                
-        boolean bool = false;
-        for(String s: words){
-            if(s.charAt(0)==s.charAt(1)){
-                if(map.containsKey(s)){
-                    max += 4*(map.get(s)/2);
-                    if(map.get(s)%2!=0){
-                        bool = true;
-                    }
-                }
-            } else{
-                String target = reverse(s);
-                
-                if(map.containsKey(target)){
-                    int org = map.get(s);
-                    int tar = map.get(target);
-                    
-                    max += 4*(Math.min(org, tar));
-                    map.remove(target);
-                }
-            }
+            int a = s.charAt(0)-'a';
+            int b = s.charAt(1)-'a';
             
-            map.remove(s);
+            if(dp[b][a]!=0){
+                max+=4;
+                dp[b][a]--;
+            } else{
+                dp[a][b]++;
+            }
         }
         
-        if(bool){
-            max+=2;
+        for(int i=0; i<26; i++){
+            if(dp[i][i]!=0){
+                max+=2;
+                break;
+            }
         }
         
         return max;
