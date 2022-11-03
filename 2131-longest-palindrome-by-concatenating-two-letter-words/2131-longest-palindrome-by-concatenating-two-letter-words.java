@@ -6,11 +6,8 @@ class Solution {
         for(String s: words){
             map.put(s, map.getOrDefault(s, 0)+1);
         }
-        
-        // System.out.println("map: "+map);
-        
+                
         boolean bool = false;
-        
         for(String s: words){
             if(s.charAt(0)==s.charAt(1)){
                 if(map.containsKey(s)){
