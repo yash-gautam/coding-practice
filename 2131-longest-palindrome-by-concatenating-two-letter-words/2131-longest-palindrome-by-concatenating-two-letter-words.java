@@ -39,6 +39,6 @@ class Solution {
     }
     
     String reverse(String s){
-        return s.substring(s.length()-1) + s.substring(0, s.length()-1);
+        return ""+s.charAt(1)+s.charAt(0);
     }
 }
