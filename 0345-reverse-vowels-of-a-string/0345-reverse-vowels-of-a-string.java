@@ -24,13 +24,7 @@ class Solution {
         
         return String.valueOf(arr);
     }
-    
-    void print(char[] arr){
-        for(char ch: arr){
-            System.out.print(ch+", ");
-        }
-        System.out.println();
-    }
+
     boolean isVowel(char ch){
         if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u' 
                || ch=='A' || ch=='E' || ch=='I' || ch=='O' || ch=='U'){
