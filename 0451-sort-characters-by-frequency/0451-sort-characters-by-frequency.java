@@ -6,19 +6,19 @@ class Solution {
         }
         
         PriorityQueue<Character> pq = new PriorityQueue<>((b, a)->map.get(a)-map.get(b));
-        for(Character key: map.keySet()){
-            pq.add(key);
-        }
+        pq.addAll(map.keySet());
         
-        String res = "";
+        char[] ans = new char[s.length()];
+        int i = 0;
+        
         while(!pq.isEmpty()){
             char ch = pq.remove();
             int freq = map.get(ch);
             while(freq-->0){
-                res+=ch;
+                ans[i++] = ch;
             }
         }
         
-        return res;
+        return new String(ans);
     }
 }
