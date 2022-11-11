@@ -8,17 +8,19 @@ class Solution {
         PriorityQueue<Character> pq = new PriorityQueue<>((b, a)->map.get(a)-map.get(b));
         pq.addAll(map.keySet());
         
-        char[] ans = new char[s.length()];
-        int i = 0;
+        // char[] ans = new char[s.length()];
+        // int i = 0;
         
+        String res = "";
         while(!pq.isEmpty()){
             char ch = pq.remove();
             int freq = map.get(ch);
             while(freq-->0){
-                ans[i++] = ch;
+                res+=ch;
             }
         }
         
-        return new String(ans);
+        // return new String(ans);
+        return res;
     }
 }
