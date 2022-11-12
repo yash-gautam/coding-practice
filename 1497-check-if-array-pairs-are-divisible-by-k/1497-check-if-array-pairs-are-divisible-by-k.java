@@ -12,7 +12,7 @@ class Solution {
             int target = (k-ele)%k;
             
             if(map.containsKey(target) && map.get(target)>0){
-                map.replace(target, map.get(target)-1);
+                map.put(target, map.get(target)-1);
                 pairs--;
             } else{
                 map.put(ele, map.getOrDefault(ele, 0)+1);
