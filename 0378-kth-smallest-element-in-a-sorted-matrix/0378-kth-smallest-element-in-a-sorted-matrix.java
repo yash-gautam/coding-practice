@@ -8,9 +8,6 @@ class Solution {
         int ans = 0;
         while(low<=high){
             int mid = low+(high-low)/2;
-            
-            // System.out.println("mid: "+mid+" ele smaller: "+elementsSmallerThan(matrix, mid));
-            
             if(elementsSmallerThan(matrix, mid)<k){
                 ans = mid;
                 low = mid+1;
