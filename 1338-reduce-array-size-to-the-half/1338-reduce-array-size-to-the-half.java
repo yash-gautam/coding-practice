@@ -14,8 +14,7 @@ class Solution {
         int elementsLeft = n;
         int size = 0;
         while(!pq.isEmpty()){
-            int top = pq.poll();
-            elementsLeft -= map.get(top);
+            elementsLeft -= map.get(pq.poll());
             size++;
             if(elementsLeft<=n/2){
                 break;
