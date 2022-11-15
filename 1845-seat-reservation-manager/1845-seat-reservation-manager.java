@@ -2,7 +2,7 @@ class SeatManager {
     PriorityQueue<Integer> pq;
 
     public SeatManager(int n) {
-        pq = new PriorityQueue<>(); //contains unreserved seats
+        pq = new PriorityQueue<>();
         
         for(int i=1; i<=n; i++){
             pq.add(i);
