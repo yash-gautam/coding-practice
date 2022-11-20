@@ -3,26 +3,17 @@ class Solution {
         int n = nums.length;
         int count = 0;
         
-        for(int i=0; i<n; i++){
-            int first = nums[i];
-            
-            for(int j=i+1; j<n; j++){
-                int second = nums[j];
-                if(second==first){
-                    continue;
-                }
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i: nums){
+            map.put(i, map.getOrDefault(i, 0)+1);
+        }
         
-                for(int k=j+1; k<n; k++){
-                    int third = nums[k];
-                    
-                    if(third==first || third==second){
-                        continue;
-                    } else{
-                        count++;
-                    }
-                }
-                
-            }
+        int l=0, r = n;
+        for(int key: map.keySet()){
+            int freq = map.get(key);
+            r -= freq;
+            count += l*freq*r;
+            l += freq;
         }
         
         return count;
